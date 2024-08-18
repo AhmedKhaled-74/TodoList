@@ -1,0 +1,20 @@
+body {
+    background : linear-gradient(90deg, #E22865, #37ADCD);
+    color      : white;
+    font-family: cursive;
+}
+
+.home-item {
+    transition: all .4s;
+    border    : solid 1px gray;
+    padding: 13px 18px ;
+}
+
+.home-item:hover {
+    box-shadow: 0 0 20px #E22865;
+    border    : solid 1px #E22865;
+}
+
+.home-item i {
+    cursor: pointer;
+}
