@@ -1,13 +1,14 @@
 let homeContent = document.getElementById("homeContent");
+let Count = document.getElementById("count_items");
 let todoList = JSON.parse(localStorage.getItem("toDo")) || [];
-display();
 
+display();
+displayCount();
 let userInput = document.getElementById("userInput");
 let searchInput = document.getElementById("searchInput");
 
 function addItem() {
   const inputValues = userInput.value.split(",");
-
   inputValues.forEach((value) => {
     const trimmedValue = value.trim(); // Remove leading/trailing whitespace
     if (trimmedValue !== "") {
@@ -17,7 +18,9 @@ function addItem() {
   });
   localStorage.setItem("toDo", JSON.stringify(todoList));
   userInput.value = "";
+  countNum = todoList.length;
   display();
+  displayCount();
 }
 
 function display() {
@@ -32,11 +35,15 @@ function display() {
   });
   homeContent.innerHTML = cartona;
 }
-
+function displayCount() {
+  let countNum = todoList.length || 0;
+  Count.innerHTML = `Topics : ${countNum}`;
+}
 function deleteItem(item) {
   todoList.splice(todoList.indexOf(item), 1);
   localStorage.setItem("toDo", JSON.stringify(todoList));
   display();
+  displayCount();
   searchInput.value = "";
 }
 
