@@ -66,30 +66,52 @@ searchInput.addEventListener("keyup", () => {
   });
   homeContent.innerHTML = box;
 });
-let time = 30 * 60 * 1000;
+
+const customAlert = document.getElementById("customAlert");
+const alertMessage = document.getElementById("alertMessage");
+
+let audio = document.getElementById("myAudio"); // Try to get existing audio element
+if (!audio) {
+  audio = document.createElement("audio");
+  audio.id = "myAudio"; // Give it an ID so we can reuse it
+  document.body.appendChild(audio); // Add it to the page (hidden)
+}
+// 2. Set the audio source (you can use different audio formats)
+audio.src = "./sound.wav";
+audio.loop = true;
+
+function showCustomAlert(message) {
+  // Set the alert message
+  alertMessage.textContent = message;
+
+  // Show the custom alert
+  customAlert.style.display = "flex";
+
+  // Handle the OK button click
+  document.getElementById("alertOK").onclick = function () {
+    customAlert.style.display = "none"; // Hide the alert
+    stopAlertWithSound();
+  };
+}
+
+// Example usage
+
+let time = 30 * 60 * 10000;
+
 setInterval(() => {
   if (todoList.length > 0) {
     showAlertWithSound();
-    setTimeout(() => {
-      alert(todoList[0]);
-    }, 500);
+    showCustomAlert(todoList[0]);
   }
 }, time);
 
 function showAlertWithSound() {
-  // 1. Create an audio element (if it doesn't already exist)
-  let audio = document.getElementById("myAudio"); // Try to get existing audio element
-  if (!audio) {
-    audio = document.createElement("audio");
-    audio.id = "myAudio"; // Give it an ID so we can reuse it
-    document.body.appendChild(audio); // Add it to the page (hidden)
-  }
-
-  // 2. Set the audio source (you can use different audio formats)
-  audio.src = "./sound.wav";
-
-  // 3. Play the sound
   audio.play().catch((error) => {
     console.error("Error playing sound:", error);
   });
+}
+
+function stopAlertWithSound() {
+  audio.pause();
+  audio.currentTime = 0;
 }

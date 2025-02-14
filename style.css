@@ -1,20 +1,62 @@
 body {
-    background : linear-gradient(90deg, #E22865, #37ADCD);
-    color      : white;
-    font-family: cursive;
+  background: linear-gradient(90deg, #e22865, #37adcd);
+  color: white;
+  font-family: cursive;
 }
 
 .home-item {
-    transition: all .4s;
-    border    : solid 1px gray;
-    padding: 13px 18px ;
+  transition: all 0.4s;
+  border: solid 1px gray;
+  padding: 13px 18px;
 }
 
 .home-item:hover {
-    box-shadow: 0 0 20px #E22865;
-    border    : solid 1px #E22865;
+  box-shadow: 0 0 20px #e22865;
+  border: solid 1px #e22865;
 }
 
 .home-item i {
-    cursor: pointer;
+  cursor: pointer;
+}
+.custom-alert {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 1000; /* Ensure it's on top of other content */
+}
+
+/* Custom alert box */
+.custom-alert-content {
+  background-color: white;
+  padding: 20px;
+  color: black;
+  font-size: 28px;
+  font-weight: 700;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 70%;
+}
+
+/* OK button */
+#alertOK {
+  background-color: #ee1122;
+  color: white;
+  font-size: 16px;
+  transition: all 0.2s;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#alertOK:hover {
+  background-color: rgba(255, 0, 0, 0.808);
 }
