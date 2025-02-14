@@ -96,7 +96,7 @@ function showCustomAlert(message) {
 
 // Example usage
 
-let time = 30 * 60 * 10000;
+let time = 30 * 60 * 1000;
 
 setInterval(() => {
   if (todoList.length > 0) {
