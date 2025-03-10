@@ -86,7 +86,7 @@ function showCustomAlert(message) {
 
   // Show the custom alert
   customAlert.style.display = "flex";
-
+  document.getElementById("alertOK").focus();
   // Handle the OK button click
   document.getElementById("alertOK").onclick = function () {
     customAlert.style.display = "none"; // Hide the alert
